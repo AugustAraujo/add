@@ -43,9 +43,7 @@ public class Escola implements Serializable {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
+    public Endereco getEndereco() { return endereco; }
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
