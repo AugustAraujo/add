@@ -1,5 +1,7 @@
 package com.augusto.add.Entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,16 +18,20 @@ public class Turma {
 
     }
 
+    @ApiModelProperty(value = "ID da turma")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ApiModelProperty(value = "Nome da turma")
     @Column
     private String nome;
 
+    @ApiModelProperty(value = "Capacidade da turma")
     @Column
     private int capacidade;
 
+    @ApiModelProperty(value = "ID da escola")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_escola", referencedColumnName = "id")
     private Escola escola;

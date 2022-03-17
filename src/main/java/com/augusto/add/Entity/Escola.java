@@ -1,5 +1,7 @@
 package com.augusto.add.Entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,13 +18,16 @@ public class Escola implements Serializable {
 
     }
 
+    @ApiModelProperty(value = "ID da escola")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ApiModelProperty(value = "Nome da escola")
     @Column
     private String nome;
 
+    @ApiModelProperty(value = "ID do endereço referente a escola")
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco", referencedColumnName = "id")
     private Endereco endereco;

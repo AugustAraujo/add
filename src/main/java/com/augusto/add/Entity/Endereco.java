@@ -1,5 +1,7 @@
 package com.augusto.add.Entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,22 +21,28 @@ public class Endereco implements Serializable {
 
     }
 
+    @ApiModelProperty(value = "ID do endereço")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ApiModelProperty(value = "Logradouro do endereço")
     @Column
     private String logradouro;
 
+    @ApiModelProperty(value = "Complemento do endereço")
     @Column
     private String complemento;
 
+    @ApiModelProperty(value = "Bairro do endereço")
     @Column
     private String bairro;
 
+    @ApiModelProperty(value = "Cidade do endereço")
     @Column
     private String cidade;
 
+    @ApiModelProperty(value = "Estado do endereço")
     @Column
     private String estado;
 

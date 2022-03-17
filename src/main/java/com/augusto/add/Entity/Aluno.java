@@ -1,5 +1,6 @@
 package com.augusto.add.Entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -19,17 +20,21 @@ public class Aluno {
 
     }
 
+    @ApiModelProperty(value = "ID do aluno")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ApiModelProperty(value = "Nome do aluno")
     @Column
     private String nome;
 
+    @ApiModelProperty(value = "Data de nascimento do aluno")
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_de_nascimento;
 
+    @ApiModelProperty(value = "ID da turma que o usuário está")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_turma", referencedColumnName = "id")
     private Turma turma;
