@@ -19,9 +19,9 @@ public class TurmaController {
 
     @GetMapping
     public String getAll(Model model){
-        List<Turma> alunos = this.turmaRepository.findAll();
-        if (alunos != null && !alunos.isEmpty()){
-            model.addAttribute("alunos", alunos);
+        List<Turma> turmas = this.turmaRepository.findAll();
+        if (turmas != null && !turmas.isEmpty()){
+            model.addAttribute("turmas", turmas);
         }
         return "listarTurmas";
     }

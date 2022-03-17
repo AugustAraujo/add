@@ -1,8 +1,6 @@
 package com.augusto.add.Controller;
 
-import com.augusto.add.Entity.Aluno;
 import com.augusto.add.Entity.Endereco;
-import com.augusto.add.Repository.AlunoRepository;
 import com.augusto.add.Repository.EnderecoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,6 +65,6 @@ public class EnderecoController {
     public String updateAluno(Model model, @RequestBody Endereco endereco){
         this.enderecoRepository.updateEndereco(endereco.getId(), endereco.getLogradouro(), endereco.getBairro(), endereco.getCidade(), endereco.getComplemento(), endereco.getEstado());
 
-        return "listarAlunos";
+        return "cadastraAluno";
     }
 }

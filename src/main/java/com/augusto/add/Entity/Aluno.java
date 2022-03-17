@@ -1,15 +1,17 @@
 package com.augusto.add.Entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 public class Aluno {
 
-    public Aluno(int id, String nome, Timestamp dataDeNascimento, Turma turma) {
+    public Aluno(int id, String nome, Date data_de_nascimento, Turma turma) {
         this.id = id;
         this.nome = nome;
-        DataDeNascimento = dataDeNascimento;
+        this.data_de_nascimento = data_de_nascimento;
         this.turma = turma;
     }
 
@@ -17,15 +19,16 @@ public class Aluno {
 
     }
 
-    @GeneratedValue
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
     private String nome;
 
     @Column
-    private Timestamp DataDeNascimento;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date data_de_nascimento;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="id_turma", referencedColumnName = "id")
@@ -47,12 +50,12 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public Timestamp getDataDeNascimento() {
-        return DataDeNascimento;
+    public Date getDataDeNascimento() {
+        return data_de_nascimento;
     }
 
-    public void setDataDeNascimento(Timestamp dataDeNascimento) {
-        DataDeNascimento = dataDeNascimento;
+    public void setDataDeNascimento(Date dataDeNascimento) {
+        data_de_nascimento = dataDeNascimento;
     }
 
     public Turma getTurma() {
@@ -62,4 +65,5 @@ public class Aluno {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
 }
